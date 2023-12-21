@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1><%= @task.title %></h1>
+    <p><%= @task.details %></p>
+    <p>Completed? <%= @task.completed %></p>
+  </div>
+
+  <div>
+    <%= link_to 'Back to all tasks', tasks_path %>
+  </div>
+
+  <%= link_to 'Edit',
+    edit_task_path(@task),
+    data: {turbo_method: :get}
+  %>
+
+  <%= link_to 'Delete',
+    task_path(@task),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<div>
